@@ -97,10 +97,10 @@ $show_complete_tasks = rand(0, 1);
                                 <?php 
 
                                 if ($show_complete_tasks == 1) {
-                                   print ("<input class='checkbox__input visually-hidden' type='checkbox'>");
+                                   print ("<input class='checkbox__input visually-hidden' checked='checked' type='checkbox'>");
                                }
                                else {
-                                   print ("<input class='checkbox__input visually-hidden' checked='checked'  type='checkbox'>");
+                                   print ("<input class='checkbox__input visually-hidden'   type='checkbox'>");
                                } 
                                ?>
                                <!--добавить сюда аттрибут "checked", если переменная $show_complete_tasks равна единице-->
