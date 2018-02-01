@@ -94,57 +94,53 @@ $show_complete_tasks = rand(0, 1);
 
                         <label class="checkbox">
                             <a href="/">
-                                <?php 
+                             <input class="checkbox__input visually-hidden" type="checkbox"
+                             <?php if ($show_complete_tasks === 1): ?>
+                               checked
+                           <?php endif; ?>
+                           >
+                           <!--добавить сюда аттрибут "checked", если переменная $show_complete_tasks равна единице-->
+                           <span class="checkbox__text">Показывать выполненные</span>
 
-                                if ($show_complete_tasks == 1) {
-                                   print ("<input class='checkbox__input visually-hidden' checked='checked' type='checkbox'>");
-                               }
-                               else {
-                                   print ("<input class='checkbox__input visually-hidden'   type='checkbox'>");
-                               } 
-                               ?>
-                               <!--добавить сюда аттрибут "checked", если переменная $show_complete_tasks равна единице-->
-                               <span class="checkbox__text">Показывать выполненные</span>
+                       </a>
+                   </label>
+               </div>
 
-                           </a>
-                       </label>
-                   </div>
+               <table class="tasks">
+                <?php
 
-                   <table class="tasks">
-                    <?php
-
-                    if ($show_complete_tasks == 1) {
-                       print ("<tr class='tasks__item task task--completed'>
-                        <td class='task__select'>
-                        <label class='checkbox task__checkbox'>
-                        <input class='checkbox__input visually-hidden' type='checkbox' checked>
-                        <span class='checkbox__text'>Записаться на интенсив 'Базовый PHP'</span>
-                        </label>
-                        </td>
-                        <td class='task__date'>10.04.2017</td>
-
-                        <td class='task__controls'>
-                        </td>
-                        </tr>");
-                   }
-
-                   ?>
-                   <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
-                   <tr class="tasks__item task task--completed">
-                    <td class="task__select">
-                        <label class="checkbox task__checkbox">
-                            <input class="checkbox__input visually-hidden" type="checkbox" checked>
-                            <a href="/"><span class="checkbox__text">Сделать главную страницу Дела в порядке</span></a>
-                        </label>
+                if ($show_complete_tasks == 1) {
+                 print ("<tr class='tasks__item task task--completed'>
+                    <td class='task__select'>
+                    <label class='checkbox task__checkbox'>
+                    <input class='checkbox__input visually-hidden' type='checkbox' checked>
+                    <span class='checkbox__text'>Записаться на интенсив 'Базовый PHP'</span>
+                    </label>
                     </td>
-                    <td class="task__file">
-                        <a class="download-link" href="#">Home.psd</a>
+                    <td class='task__date'>10.04.2017</td>
+
+                    <td class='task__controls'>
                     </td>
-                    <td class="task__date"></td>
-                </tr>
-            </table>
-        </main>
-    </div>
+                    </tr>");
+             }
+
+             ?>
+             <!--показывать следующий тег <tr/>, если переменная $show_complete_tasks равна единице-->
+             <tr class="tasks__item task task--completed">
+                <td class="task__select">
+                    <label class="checkbox task__checkbox">
+                        <input class="checkbox__input visually-hidden" type="checkbox" checked>
+                        <a href="/"><span class="checkbox__text">Сделать главную страницу Дела в порядке</span></a>
+                    </label>
+                </td>
+                <td class="task__file">
+                    <a class="download-link" href="#">Home.psd</a>
+                </td>
+                <td class="task__date"></td>
+            </tr>
+        </table>
+    </main>
+</div>
 </div>
 </div>
 <footer class="main-footer">
