@@ -1,7 +1,9 @@
 # Личный проект «Дела в Порядке»
 
 * Студент: [Владислав Сысоев](https://up.htmlacademy.ru/php/4/user/332289).
-* Наставник:[Игорь Антонов](https://htmlacademy.ru/profile/antonov).
+* Наставник: [Игорь Антонов](https://htmlacademy.ru/profile/antonov).
+
+
 
 ---
 
