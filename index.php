@@ -1,185 +1,141 @@
 <?php
-// показывать или нет выполненные задачи
+// показывать или  выполненные задачи
 $show_complete_tasks = rand(0, 1);
 $categories = ["Все","Входящие","Учеба","Работа","Домашние дела","Авто"];
 $tasks = [
   [   
     'task' => 'Собеседование в IT компании',
-    'completion_date' => '01.06.2018',
+    'deadline' => '01.06.2018',
     'category' => 'Работа',
-    'completion_status' => 'Нет'
+    'status' => ''
   ],
   [   
     'task' => 'Выполнить тестовое задание',
-    'completion_date' => '25.05.2018',
+    'deadline' => '25.05.2018',
     'category' => 'Работа',
-    'completion_status' => 'Нет'
+    'status' => ''
   ],
   [   
     'task' => 'Сделать задание первого раздела',
-    'completion_date' => '21.04.2018',
+    'deadline' => '21.04.2018',
     'category' => 'Учеба',
-    'completion_status' => 'Да'
+    'status' => true
   ],
   [   
     'task' => 'Встреча с другом',
-    'completion_date' => '22.04.2018',
+    'deadline' => '22.04.2018',
     'category' => 'Входящие',
-    'completion_status' => 'Нет'
+    'status' => ''
   ],
   [  
    'task' => 'Купить корм для кота',
-   'completion_date' => 'Нет',
+   'deadline' => '',
    'category' => 'Домашние дела',
-   'completion_status' => 'Нет'
+   'status' => ''
  ],
  [  
    'task' => 'Заказать пиццу',
-   'completion_date' => 'Нет',
+   'deadline' => '',
    'category' => 'Домашние дела',
-   'completion_status' => 'Нет'
+   'status' => ''
  ]
 ];
 
 ?>
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8">
   <title>Дела в порядке</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body><!--class="overlay"-->
   <h1 class="visually-hidden">Дела в порядке</h1>
-
   <div class="page-wrapper">
     <div class="container container--with-sidebar">
       <header class="main-header">
         <a href="#">
           <img src="img/logo.png" width="153" height="42" alt="Логотип Дела в порядке">
         </a>
-
         <div class="main-header__side">
           <a class="main-header__side-item button button--plus" href="#">Добавить задачу</a>
-
           <div class="main-header__side-item user-menu">
             <div class="user-menu__image">
               <img src="img/user-pic.jpg" width="40" height="40" alt="Пользователь">
             </div>
-
             <div class="user-menu__data">
               <p>Константин</p>
-
               <a href="#">Выйти</a>
             </div>
           </div>
         </div>
       </header>
-
       <div class="content">
         <section class="content__side">
           <h2 class="content__side-heading">Проекты</h2>
-
           <nav class="main-navigation">
             <ul class="main-navigation__list">
-
-              <li class="main-navigation__list-item main-navigation__list-item--active">  
-               <a class="main-navigation__list-item-link" href="#"><?=$categories[0];?></a>
-               <span class="main-navigation__list-item-count">24</span>
-             </li>
-
-             <li class="main-navigation__list-item">
-              <a class="main-navigation__list-item-link" href="#"><?=$categories[1];?></a>
-              <span class="main-navigation__list-item-count">12</span>
-            </li>
-
-            <li class="main-navigation__list-item">
-              <a class="main-navigation__list-item-link" href="#"><?=$categories[2];?></a>
-              <span class="main-navigation__list-item-count">3</span>
-            </li>
-
-            <li class="main-navigation__list-item">
-              <a class="main-navigation__list-item-link" href="#"><?=$categories[3];?></a>
-              <span class="main-navigation__list-item-count">7</span>
-            </li>
-
-            <li class="main-navigation__list-item">
-              <a class="main-navigation__list-item-link" href="#"><?=$categories[4];?></a>
-              <span class="main-navigation__list-item-count">0</span>
-            </li> 
-
-            <li class="main-navigation__list-item">
-              <a class="main-navigation__list-item-link" href="#"><?=$categories[5];?></a>
-              <span class="main-navigation__list-item-count">0</span>
-            </li> 
-          </ul>
-        </nav>
-
-        <a class="button button--transparent button--plus content__side-button" href="#">Добавить проект</a>
-      </section>
-
-      <main class="content__main">
-        <h2 class="content__main-heading">Список задач</h2>
-
-        <form class="search-form" action="index.html" method="post">
-          <input class="search-form__input" type="text" name="" value="" placeholder="Поиск по задачам">
-
-          <input class="search-form__submit" type="submit" name="" value="Искать">
-        </form>
-
-        <div class="tasks-controls">
-          <nav class="tasks-switch">
-            <a href="/" class="tasks-switch__item tasks-switch__item--active">Все задачи</a>
-            <a href="/" class="tasks-switch__item">Повестка дня</a>
-            <a href="/" class="tasks-switch__item">Завтра</a>
-            <a href="/" class="tasks-switch__item">Просроченные</a>
+              <?php foreach ($categories as $key => $value): ?>
+                <li class="main-navigation__list-item 
+                <?php if ($key === 0): ?>
+                  main-navigation__list-item--active
+                <?php endif ?>
+                ">  
+                <a class="main-navigation__list-item-link" href="#"><?=$value;?></a>
+                <span class="main-navigation__list-item-count">0</span>
+              </li>
+            <?php endforeach ?>
           </nav>
-
-          <label class="checkbox">
-            <a href="/">
-             <input class="checkbox__input visually-hidden" type="checkbox"
-             <?php if ($show_complete_tasks === 1): ?>
-               checked
-             <?php endif; ?>
-             >
-             <!--добавить сюда аттрибут "checked", если переменная $show_complete_tasks равна единице-->
-             <span class="checkbox__text">Показывать выполненные</span>
-
-           </a>
-         </label>
-       </div>
-
-       <table class="tasks">
-        <tr class="tasks__item _alt-bg">
-          <td class="task__date">Задача</td>
-          <td class="task__date">Дата выполнения</td>
-          <td class="task__date">Категория</td>
-          <td class="task__date">Выполнен</td>
-        </tr>
-        <?php foreach ($tasks as $key => $val): ?>
-          <tr class="tasks__item task">
-            <td class="task__date _left-align">
-              <label class="checkbox task__checkbox">
-                <input class="checkbox__input visually-hidden" type="checkbox">
-                <span class="checkbox__text"><?=$val['task'];?>
-                </span>
-              </label>
-            </td>
-            <td class='task__date'><?=$val['completion_date'];?></td>
-            <td class='task__date'><?=$val['category'];?></td>
-
-            <td class='task__date'>
-              <?=$val['completion_status'];?>
-            </td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
-    </main>
+          <a class="button button--transparent button--plus content__side-button" href="#">Добавить проект</a>
+        </section>
+        <main class="content__main">
+          <h2 class="content__main-heading">Список задач</h2>
+          <form class="search-form" action="index.html" method="post">
+            <input class="search-form__input" type="text" name="" value="" placeholder="Поиск по задачам">
+            <input class="search-form__submit" type="submit" name="" value="Искать">
+          </form>
+          <div class="tasks-controls">
+            <nav class="tasks-switch">
+              <a href="/" class="tasks-switch__item tasks-switch__item--active">Все задачи</a>
+              <a href="/" class="tasks-switch__item">Повестка дня</a>
+              <a href="/" class="tasks-switch__item">Завтра</a>
+              <a href="/" class="tasks-switch__item">Просроченные</a>
+            </nav>
+            <label class="checkbox">
+              <a href="/">
+               <input class="checkbox__input visually-hidden" type="checkbox"
+               <?php if ($show_complete_tasks === 1): ?>
+                 checked
+               <?php endif; ?>
+               >
+               <!--добавить сюда аттрибут "checked", если переменная $show_complete_tasks равна единице-->
+               <span class="checkbox__text">Показывать выполненные</span>
+             </a>
+           </label>
+         </div>
+         <table class="tasks">
+          <?php foreach ($tasks as $key => $value): ?>
+            <tr class="tasks__item task
+            <?php if ($value['status'] === true): ?>
+                    task--completed
+                  <?php endif ?>
+                  ">
+              <td class="task__select">
+                <label class="checkbox task__checkbox">
+                  <input class="checkbox__input visually-hidden" type="checkbox">
+                  <a href="/"><span class="checkbox__text"><?=$value['task'];?></span></a>
+                </label>
+              </td>
+              <td class="task__file">
+              </td>
+              <td class="task__date"><?=$value['deadline'];?></td>
+            </tr>
+          <?php endforeach ?>
+        </table>
+      </main>
+    </div>
   </div>
-</div>
 </div>
 <footer class="main-footer">
   <div class="container">
@@ -206,10 +162,8 @@ $tasks = [
         <svg width="27" height="27" viewBox="0 0 27 27" xmlns="http://www.w3.org/2000/svg"><circle stroke="#879296" fill="none" cx="13.5" cy="13.5" r="12.666"/><path fill="#879296" d="M13.92 18.07c.142-.016.278-.074.39-.166.077-.107.118-.237.116-.37 0 0 0-1.13.516-1.296.517-.165 1.208 1.09 1.95 1.58.276.213.624.314.973.28h1.95s.973-.057.525-.837c-.38-.62-.865-1.17-1.432-1.626-1.208-1.1-1.043-.916.41-2.816.886-1.16 1.236-1.86 1.13-2.163-.108-.302-.76-.214-.76-.214h-2.164c-.092-.026-.19-.026-.282 0-.083.058-.15.135-.195.225-.224.57-.49 1.125-.8 1.656-.973 1.61-1.344 1.697-1.51 1.59-.37-.234-.272-.975-.272-1.433 0-1.56.243-2.202-.468-2.377-.32-.075-.647-.108-.974-.098-.604-.052-1.213.01-1.793.186-.243.116-.438.38-.32.4.245.018.474.13.642.31.152.303.225.638.214.975 0 0 .127 1.832-.302 2.056-.43.223-.692-.167-1.55-1.618-.29-.506-.547-1.03-.77-1.57-.038-.09-.098-.17-.174-.233-.1-.065-.214-.108-.332-.128H6.485s-.312 0-.42.137c-.106.135 0 .36 0 .36.87 2 2.022 3.868 3.42 5.543.923.996 2.21 1.573 3.567 1.598z"/></svg>
       </a>
     </div>
-
     <div class="main-footer__developed-by">
       <span class="visually-hidden">Разработано:</span>
-
       <a href="https://htmlacademy.ru/intensive/php">
         <img src="img/htmlacademy.svg" alt="HTML Academy" width="118" height="40">
       </a>

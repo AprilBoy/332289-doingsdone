@@ -332,7 +332,7 @@ a:focus {
 
 .content__main {
   flex-grow: 1;
-  padding: 0 30px 45px 27px;
+  padding: 0 30px 0 27px;
 }
 
 .content__main-heading {
@@ -777,13 +777,4 @@ a:focus {
 
 .welcome__text p {
   margin: 20px 0;
-}
-
-._alt-bg {
-  background-color: #d7dbe8;
-  text-align: center;
-}
-
-._left-align {
-  text-align: left;
 }
