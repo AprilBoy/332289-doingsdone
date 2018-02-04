@@ -51,7 +51,6 @@ $tasks = [
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body><!--class="overlay"-->
-
   <h1 class="visually-hidden">Дела в порядке</h1>
   <div class="page-wrapper">
     <div class="container container--with-sidebar">
