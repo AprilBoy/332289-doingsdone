@@ -41,6 +41,21 @@ $tasks = [
  ]
 ];
 
+foreach ($tasks as $key => $value) {
+ $task_list = count(isset($tasks['task']));
+  echo $task_list;
+}
+ if ($task_list === $categories[0] ) {
+   echo $task_list;
+ }
+
+
+
+function($task_list, $task_name){
+
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -118,24 +133,24 @@ $tasks = [
           <?php foreach ($tasks as $key => $value): ?>
             <tr class="tasks__item task
             <?php if ($value['status'] === true): ?>
-                    task--completed
-                  <?php endif ?>
-                  ">
-              <td class="task__select">
-                <label class="checkbox task__checkbox">
-                  <input class="checkbox__input visually-hidden" type="checkbox">
-                  <a href="/"><span class="checkbox__text"><?=$value['task'];?></span></a>
-                </label>
-              </td>
-              <td class="task__file">
-              </td>
-              <td class="task__date"><?=$value['deadline'];?></td>
-            </tr>
-          <?php endforeach ?>
-        </table>
-      </main>
-    </div>
+              task--completed
+            <?php endif ?>
+            ">
+            <td class="task__select">
+              <label class="checkbox task__checkbox">
+                <input class="checkbox__input visually-hidden" type="checkbox">
+                <a href="/"><span class="checkbox__text"><?=$value['task'];?></span></a>
+              </label>
+            </td>
+            <td class="task__file">
+            </td>
+            <td class="task__date"><?=$value['deadline'];?></td>
+          </tr>
+        <?php endforeach ?>
+      </table>
+    </main>
   </div>
+</div>
 </div>
 <footer class="main-footer">
   <div class="container">
