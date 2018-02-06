@@ -40,21 +40,28 @@ $tasks = [
    'status' => ''
  ]
 ];
+// foreach ($tasks as $key => $value) {
+//  $task_list = count(isset($tasks['category']));
+//   echo $task_list;
 
-foreach ($tasks as $key => $value) {
- $task_list = count(isset($tasks['task']));
-  echo $task_list;
+
+ // if ($task_name === $categories[0]) {
+ //      echo count($tasks['category']);
+ //    }
+
+// function get_project_task_count($tasks, $task_name){
+
+  
+// }
+
+function assc_array_count_values( $tasks){ 
+  foreach ($tasks as $value) {
+$new_array[] = $value['category'];
+$count = array_count_values($new_array);
 }
- if ($task_list === $categories[0] ) {
-   echo $task_list;
- }
-
-
-
-function($task_list, $task_name){
-
 }
 
+print_r($count);
 
 ?>
 <!DOCTYPE html>
