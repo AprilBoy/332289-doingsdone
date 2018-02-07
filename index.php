@@ -41,7 +41,7 @@ $tasks = [
  ]
 ];
 
-// function get_project_task_count($tasks, $task_name){ 
+function get_project_task_count($tasks, $task_name){ 
 
   foreach ($tasks as $value) {
     $task_name = $value['category'];
@@ -53,14 +53,14 @@ $tasks = [
 echo $answer;
 var_dump($count);
 
-  if (  $value['category'] === 'Все') {
+  if (  $value['category'] === $categories['Все']) {
    return $answer;
  }
 
  if ($task_name = '') {
   return 0;
 }
-
+}
 
 
 ?>
@@ -105,7 +105,7 @@ var_dump($count);
                 <?php endif ?>
                 ">  
                 <a class="main-navigation__list-item-link" href="#"><?=$value;?></a>
-                <span class="main-navigation__list-item-count">0</span>
+                <span class="main-navigation__list-item-count"><?php get_project_task_count(); ?></span>
               </li>
             <?php endforeach ?>
           </nav>
