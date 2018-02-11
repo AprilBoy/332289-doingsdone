@@ -1,45 +1,45 @@
 <?php
 // показывать или  выполненные задачи
 $show_complete_tasks = rand(0, 1);
-$categories = ["Все","Входящие","Учеба","Работа","Домашние дела","Авто"];
-$tasks = [
-  [   
-    'task' => 'Собеседование в IT компании',
-    'deadline' => '01.06.2018',
-    'category' => 'Работа',
-    'status' => ''
-  ],
-  [   
-    'task' => 'Выполнить тестовое задание',
-    'deadline' => '25.05.2018',
-    'category' => 'Работа',
-    'status' => ''
-  ],
-  [   
-    'task' => 'Сделать задание первого раздела',
-    'deadline' => '21.04.2018',
-    'category' => 'Учеба',
-    'status' => true
-  ],
-  [   
-    'task' => 'Встреча с другом',
-    'deadline' => '22.04.2018',
-    'category' => 'Входящие',
-    'status' => ''
-  ],
-  [  
-   'task' => 'Купить корм для кота',
-   'deadline' => '',
-   'category' => 'Домашние дела',
-   'status' => ''
- ],
- [  
-   'task' => 'Заказать пиццу',
-   'deadline' => '',
-   'category' => 'Домашние дела',
-   'status' => ''
- ]
-];
+// $categories = ["Все","Входящие","Учеба","Работа","Домашние дела","Авто"];
+// $tasks = [
+//   [   
+//     'task' => 'Собеседование в IT компании',
+//     'deadline' => '01.06.2018',
+//     'category' => 'Работа',
+//     'status' => ''
+//   ],
+//   [   
+//     'task' => 'Выполнить тестовое задание',
+//     'deadline' => '25.05.2018',
+//     'category' => 'Работа',
+//     'status' => ''
+//   ],
+//   [   
+//     'task' => 'Сделать задание первого раздела',
+//     'deadline' => '21.04.2018',
+//     'category' => 'Учеба',
+//     'status' => true
+//   ],
+//   [   
+//     'task' => 'Встреча с другом',
+//     'deadline' => '22.04.2018',
+//     'category' => 'Входящие',
+//     'status' => ''
+//   ],
+//   [  
+//    'task' => 'Купить корм для кота',
+//    'deadline' => '',
+//    'category' => 'Домашние дела',
+//    'status' => ''
+//  ],
+//  [  
+//    'task' => 'Заказать пиццу',
+//    'deadline' => '',
+//    'category' => 'Домашние дела',
+//    'status' => ''
+//  ]
+// ];
 function get_project_test_count($tasks, $project_name){
 if ($project_name === 'Все'){
  return count ($tasks);
@@ -101,7 +101,7 @@ foreach ($tasks as $item){
           <a class="button button--transparent button--plus content__side-button" href="#">Добавить проект</a>
         </section>
         <main class="content__main">
-        <?=$template_data?>
+        <?=$content;?>
     </main>
   </div>
 </div>

@@ -1,15 +1,10 @@
 <?php 
-function include_template($layout_path){
-	if (file_exists($layout_path)) {
-		echo $layout_path;
-	}
-	else
-	{
-		echo'';
-	}
-include $layout_path;
+function get_template(string $file_path, array $data){
+	if (file_exists(TEMPLATE_DIR_PATH.$file_path.TEMPLATE_EXT)) {
+		extract($data);
 ob_start();
-  
-ob_end_flush();
-return $layout_path;
+ require_once(TEMPLATE_DIR_PATH.$file_path.TEMPLATE_EXT);
+ ob_end_flush();
+}
+return '';
 }
