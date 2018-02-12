@@ -13,6 +13,7 @@ function get_project_test_count($tasks, $project_name){
 	if ($project_name === 'Все'){
 		return count ($tasks);
 	}
+
 	$result = 0;
 	foreach ($tasks as $item){
 		if ($item['category'] === $project_name){
@@ -21,3 +22,5 @@ function get_project_test_count($tasks, $project_name){
 	}
 	return $result;
 }
+
+

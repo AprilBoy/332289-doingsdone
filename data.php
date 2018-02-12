@@ -1,10 +1,9 @@
 <?php
-
 $categories = ["Все","Входящие","Учеба","Работа","Домашние дела","Авто"];
 $tasks = [
   [   
     'task' => 'Собеседование в IT компании',
-    'deadline' => '01.06.2018',
+    'deadline' => '13.02.2018',
     'category' => 'Работа',
     'status' => ''
   ],
@@ -28,13 +27,13 @@ $tasks = [
   ],
   [  
    'task' => 'Купить корм для кота',
-   'deadline' => '',
+   'deadline' => false,
    'category' => 'Домашние дела',
    'status' => ''
  ],
  [  
    'task' => 'Заказать пиццу',
-   'deadline' => '',
+   'deadline' => false,
    'category' => 'Домашние дела',
    'status' => ''
  ]

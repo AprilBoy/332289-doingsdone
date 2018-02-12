@@ -14,4 +14,3 @@ $layout_content = get_template('layout', [
 	'tasks' => $tasks
 ]);
 print($layout_content);
-?>
