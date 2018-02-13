@@ -1,14 +1,3 @@
-  <?php 
-  date_default_timezone_set("Europe/Moscow");
-  foreach ($tasks as $key => $value) {
-   $ts = time();
-    $secs_in_day = 86400;
-    $deadline_time =  strtotime($value['deadline']);
-    $ts_diff = $deadline_time - $ts;
-    $days_until_end = floor($ts_diff / $secs_in_day);
-  }
-
-  ?>
   <h2 class="content__main-heading">Список задач</h2>
   <form class="search-form" action="index.html" method="post">
     <input class="search-form__input" type="text" name="" value="" placeholder="Поиск по задачам">
@@ -28,7 +17,6 @@
          checked
        <?php endif; ?>
        >
-       <!--добавить сюда аттрибут "checked", если переменная $show_complete_tasks равна единице-->
        <span class="checkbox__text">Показывать выполненные</span>
      </a>
    </label>
@@ -36,10 +24,10 @@
  <table class="tasks">
   <?php foreach ($tasks as $key => $value): ?>
     <tr class="tasks__item task
-    <?php if ($value['status'] === true):?>
-      task--completed
-    <?php elseif($days_until_end <= 1):?> 
+    <?php if (is_important_task($value['deadline'])):?>
       task--important
+    <?php elseif ($value['status'] === true):?>
+      task--completed
     <?php endif ?>
     ">
     <td class="task__select">
