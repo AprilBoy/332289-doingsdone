@@ -24,6 +24,9 @@ function get_project_test_count($tasks, $project_name){
 }
 
 function is_important_task($task_date) {
+	if ($task_date === "") {
+		return "";
+			}
     date_default_timezone_set('Europe/Moscow');
     $deadline_ts = strtotime($task_date);
     $current_ts = strtotime('now midnight');
