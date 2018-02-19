@@ -22,23 +22,28 @@
    </label>
  </div>
  <table class="tasks">
-  <?php foreach ($tasks as $key => $value): ?>
-    <tr class="tasks__item task
-    <?php if (is_important_task($value['deadline'])):?>
-      task--important
-    <?php elseif ($value['status'] === true):?>
-      task--completed
-    <?php endif ?>
-    ">
-    <td class="task__select">
-      <label class="checkbox task__checkbox">
-        <input class="checkbox__input visually-hidden" type="checkbox">
-        <a href="/"><span class="checkbox__text"><?=$value['task'];?></span></a>
-      </label>
-    </td>
-    <td class="task__file">
-    </td>
-    <td class="task__date"><?=$value['deadline'];?></td>
-  </tr>
+  <?php foreach ($tasks as $key => $value): 
+  if (empty($value['category'])) {
+   print_r('<h1>Задачи не найдены</h1>');
+ }
+ ?>
+ <tr class="tasks__item task
+ <?php if (is_important_task($value['deadline'])):?>
+  task--important
+<?php elseif ($value['status'] === true):?>
+  task--completed
+<?php endif ?>
+">
+<td class="task__select">
+  <label class="checkbox task__checkbox">
+    <input class="checkbox__input visually-hidden" type="checkbox">
+    <a href="/"><span class="checkbox__text"><?=$value['task'];?></span></a>
+  </label>
+</td>
+<td class="task__file">
+</td>
+<td class="task__date"><?=$value['deadline'];?></td>
+</tr>
 <?php endforeach ?>
 </table>
+
