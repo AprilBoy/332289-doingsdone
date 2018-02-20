@@ -23,8 +23,8 @@
  </div>
  <table class="tasks">
   <?php foreach ($tasks as $key => $value): 
-  if (empty($value['category'])) {
-   print_r('<h1>Задачи не найдены</h1>');
+  if ($value['category'] === '') {
+   return('<h1>Задачи не найдены</h1>');
  }
  ?>
  <tr class="tasks__item task

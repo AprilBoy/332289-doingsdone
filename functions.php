@@ -37,10 +37,6 @@ function get_tasks_from_project($tasks, $categories, $project_id) {
     if (! isset($categories[$project_id])) {
         return [];
     }
-    if ($project_id === 0) {
-		http_response_code(404);
-		  print_r('<h1 style="color: black">Гифка с этим ID не найдена</h1>');
-	}
 
     $category_name = $categories[$project_id];
 
