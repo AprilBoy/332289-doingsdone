@@ -13,34 +13,35 @@ if (isset($_GET['cat_id'])) {
 	$filtred_tasks = get_tasks_from_project($tasks, $categories, $cat_id);
 
 }
-
-// if($_SERVER['REQUEST_METHOD'] === 'POST') {
-// 	$new_task = $_POST;
-
-// 	$required = ['name', 'project'];
-// 	$dict = ['name' => 'Название', 'project' => 'Проект'];
-// 	$errors = [];
-
-// 	foreach ($required as $key) {
-// 		if (empty($_POST[$key])) {
-// 			$errors[$key] = 'Это поле надо заполнить';
-// 		}
-// 	}
-
-// 	if (count($errors)) {
-// 		$task_form = get_template('new_task', ['new_task' => $new_task, 'errors' => $errors, 'dict' => $dict ]);
-// 	}
-
-// }
-// else{
-// 	$task_form = get_template('new_task', []);
-// }
-
-
 if (isset($_GET['add'])) {
 	$classname = 'overlay';
 	require_once('templates/new_task.php');
 }
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+	$new_task = $_POST;
+
+	$required = ['name', 'project'];
+	$dict = ['name' => 'Название', 'project' => 'Проект'];
+	$errors = [];
+
+	foreach ($required as $key) {
+		if (empty($_POST[$key])) {
+			$errors[$key] = 'Это поле надо заполнить';
+		}
+	}
+
+	if (count($errors)) {
+		$task_form = get_template('new_task', ['new_task' => $new_task, 'errors' => $errors, 'dict' => $dict ]);
+	}
+
+}
+else{
+	$task_form = get_template('new_task', []);
+}
+
+
+
 
 $page_content = get_template('main', [
 	'categories' => $categories,
@@ -50,7 +51,7 @@ $page_content = get_template('main', [
 
 $layout_content = get_template('layout', [
 	'content' => $page_content,
-	// 'task_form' => $task_form,
+	'task_form' => $task_form,
 	'title' => 'Дела в порядке',
 	'categories' => $categories,
 	'tasks' => $tasks,
