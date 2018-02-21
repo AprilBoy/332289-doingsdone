@@ -6,7 +6,10 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body<?= $classname;?>>
+<?php 
+$classname = isset($_GET['add']) ? "overlay" : "";
+?>
+<body class ="<?= $classname;?>">
   <h1 class="visually-hidden">Дела в порядке</h1>
   <div class="page-wrapper">
     <div class="container container--with-sidebar">
